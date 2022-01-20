@@ -1,0 +1,30 @@
+export const API_URL: "https://ethgasstation.info/json/ethgasAPI.json?api-key=";
+export default class GasService extends PublicService {
+    constructor(name?: string);
+    _fallback: any;
+    _multiplier: any;
+    _transactionSpeed: any;
+    initialize(settings: any): void;
+    _settings: any;
+    _gasStationDataPromise: Promise<any>;
+    _parseConfig(settings: string, label: any): string | void[];
+    _setProperties(settings: any, label: any): void[];
+    fetchGasStationData(): Promise<any>;
+    disablePrice: boolean;
+    getGasPrice(txSpeed: any): Promise<any>;
+    getWaitTime(txSpeed: any): Promise<any>;
+    estimateGasLimit(transaction: any): Promise<any>;
+    set multiplier(arg: any);
+    get multiplier(): any;
+    set absolute(arg: any);
+    get absolute(): any;
+    _absolute: any;
+    set fallback(arg: any);
+    get fallback(): any;
+    set transactionSpeed(arg: any);
+    get transactionSpeed(): any;
+    removeMultiplier(): void;
+    removeAbsolute(): void;
+    removeFallback(): void;
+}
+import { PublicService } from "@makerdao/services-core";

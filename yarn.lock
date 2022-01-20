@@ -2440,10 +2440,8 @@
     babel-runtime "^6.26.0"
     bignumber.js "^8.1.1"
 
-"@makerdao/dai-plugin-ledger-web@^0.9.10":
+"@makerdao/dai-plugin-ledger-web@file:@makerdao/dai-plugin-ledger-web":
   version "0.9.10"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-plugin-ledger-web/-/dai-plugin-ledger-web-0.9.10.tgz#9673390745415bc6b7a90542fb95edc3c3d4a9a0"
-  integrity sha512-PMyJVUvISLrBXkpvklL++9nS6jtgNtR5zayeNlPCpOT6Jj27xjz3gLvgq8sDO8SmWWjFyztxat9CAHJTzKDcrg==
   dependencies:
     "@ledgerhq/hw-app-eth" "^5.27.0"
     "@ledgerhq/hw-transport-u2f" "^5.26.0"
@@ -2453,20 +2451,16 @@
     hdkey "^1.0.0"
     web3-provider-engine "14.0.4"
 
-"@makerdao/dai-plugin-liquidations@^0.3.4-alpha.2":
+"@makerdao/dai-plugin-liquidations@file:@makerdao/dai-plugin-liquidations":
   version "0.3.4-alpha.2"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-plugin-liquidations/-/dai-plugin-liquidations-0.3.4-alpha.2.tgz#ba139402eeb06f3aa15536b74bae148fdd973ffe"
-  integrity sha512-CkZdlvFyZ+RNJbduefcPskwvKoocTz3D2WG2EJT5Gekdmt/ihNtRXFvrOvGNH5bLGWz4CHoBqtogrHt7xcjw3Q==
   dependencies:
     "@makerdao/currency" "0.9.9"
     "@makerdao/services-core" "^0.11.4-alpha.0"
     bignumber.js "^8.1.1"
     ramda "^0.27.1"
 
-"@makerdao/dai-plugin-mcd@^1.8.4-alpha.0":
+"@makerdao/dai-plugin-mcd@file:@makerdao/dai-plugin-mcd":
   version "1.8.4-alpha.0"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-plugin-mcd/-/dai-plugin-mcd-1.8.4-alpha.0.tgz#4dded7cf1163bcfe39ded259c5e563d9620ce35a"
-  integrity sha512-8yTBPljQ4UA8WSzC0hh22tyBQ+h8xlfVqJs18f/epTQfI3phamqN4bCfnfojvl8Khnn1Az9JCSynk2sVKMl41Q==
   dependencies:
     "@makerdao/currency" "0.9.9"
     "@makerdao/dai" "^0.42.3-alpha.0"
@@ -2474,10 +2468,8 @@
     bignumber.js "^8.1.1"
     rxjs "^6.5.4"
 
-"@makerdao/dai-plugin-trezor-web@^0.9.7":
+"@makerdao/dai-plugin-trezor-web@file:@makerdao/dai-plugin-trezor-web":
   version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-plugin-trezor-web/-/dai-plugin-trezor-web-0.9.7.tgz#74e2ff7cfe721e5405273e0b654f4b40593d1437"
-  integrity sha512-la9Vo1G+sQmhBgP80z3AmHn8mJUwVDDmEN0yPZWlJ62ytfZkiSJkQBstukZts7dG8xnp27xaJr97XpkOD6denQ==
   dependencies:
     babel-runtime "^6.26.0"
     ethereumjs-tx "^1.3.6"
@@ -2486,27 +2478,19 @@
     trezor-connect "^8.1.27"
     web3-provider-engine "14.0.4"
 
-"@makerdao/dai-ui-icons-branding@^0.0.66":
+"@makerdao/dai-ui-icons-branding@file:@makerdao/dai-ui-icons-branding":
   version "0.0.66"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-ui-icons-branding/-/dai-ui-icons-branding-0.0.66.tgz#e895b8fddb1162e97dc67222f6389d6f07fdd401"
-  integrity sha512-6qGxA6QaKamT15btGNJRcHBphXMH2mfl+TchmRRvAstQI0YvNL8uaMVEpOMiNtnZxRyaQHect4XF8ZOEPG1C6Q==
 
-"@makerdao/dai-ui-icons@^0.0.66":
+"@makerdao/dai-ui-icons@file:@makerdao/dai-ui-icons":
   version "0.0.66"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-ui-icons/-/dai-ui-icons-0.0.66.tgz#eb66311441f68fd2f55bc5488dfaaac032c9bd9f"
-  integrity sha512-PWI6BmfxdT5/GnqNL9cA3J9UXZpvZ9+jexLnHj1IGgxgai3CKbolYFjcX29xs0e8KaDxeVnnA5IWrAr/zoP22Q==
 
-"@makerdao/dai-ui-theme-maker-neue@^0.0.47":
+"@makerdao/dai-ui-theme-maker-neue@file:@makerdao/dai-ui-theme-maker-neue":
   version "0.0.47"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-ui-theme-maker-neue/-/dai-ui-theme-maker-neue-0.0.47.tgz#4fff0ef19c09a12e1c317b134f68dba7b0061e4f"
-  integrity sha512-MgSNTN7+VtORbpxSbfEMFQGkfLRY9dyUM3SRAm/qYv1TBZnAVBUSxPvmhKEEtKYS/OQvBrNDsWNg1VEPQknWOg==
   dependencies:
     "@theme-ui/color" "^0.3.1"
 
-"@makerdao/dai@^0.42.3-alpha.0":
+"@makerdao/dai@^0.42.3-alpha.0", "@makerdao/dai@file:@makerdao/dai":
   version "0.42.3-alpha.0"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai/-/dai-0.42.3-alpha.0.tgz#1983bdcc361420ad32b9bb98ae481af4fcb21e82"
-  integrity sha512-sPZnSyIqK7uPcCB3Dz1QCmT3y3LrG1TYIuNY2F+WA1sZqXA8Wl4/X9ZDs9P8KyPy1PRhrw62nkVn2e/Q6CcBKA==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@makerdao/currency" "0.9.9"
@@ -2532,10 +2516,8 @@
     web3 "^1.6.0"
     web3-provider-engine makerdao/provider-engine#kovan-fix-dist
 
-"@makerdao/i18n-helper@^0.1.8":
+"@makerdao/i18n-helper@file:@makerdao/i18n-helper":
   version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@makerdao/i18n-helper/-/i18n-helper-0.1.8.tgz#2860bc5ac04be120ef0c93fac90e0a8f468466dc"
-  integrity sha512-EgPnHc8YKZ9S8mkkjf3OG89DiMHwi8qmr1N0xBpvS1MDD5EhGzx3H0/b2Cq9GzYbAA/KRUj7Gt/ayO4p2W4M0g==
 
 "@makerdao/multicall@^0.11.0":
   version "0.11.0"
@@ -2566,17 +2548,13 @@
   dependencies:
     node-fetch "^2.6.0"
 
-"@makerdao/test-helpers@^0.3.0":
+"@makerdao/test-helpers@file:@makerdao/test-helpers":
   version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@makerdao/test-helpers/-/test-helpers-0.3.0.tgz#e4dbb631d3b679efe962b5a13c7eb520ca446c2f"
-  integrity sha512-oOyNYkLgLz9GjcpPOR0CLBAQm3FU5iLW+WNY/HoGInI77Q+PjxnVgfZ+HXPcqWVHkNOvkD2F/eHgsR3FwFgcgQ==
   dependencies:
     node-fetch "^2.6.0"
 
-"@makerdao/testchain@1.1.33-beta5":
+"@makerdao/testchain@file:@makerdao/testchain":
   version "1.1.33-beta5"
-  resolved "https://registry.yarnpkg.com/@makerdao/testchain/-/testchain-1.1.33-beta5.tgz#075fba1cfd59e22294342f0cb5c1f1154c76980b"
-  integrity sha512-QpLH7FgiA/kx5gc8XpvQ5i7i7R0Gdc+dZ3f2bm1cMsWbNNzT4DQ8nf9edBF/1aVQWwOq2+u8+yWGG7+cv5w9mw==
   dependencies:
     ganache-cli "^6.12.2"
 

@@ -20,6 +20,8 @@ function chainIdToNetworkName(chainId: number): SupportedNetworks {
       return SupportedNetworks.GOERLI;
     case 42:
       return SupportedNetworks.KOVAN;
+    case 1506:
+      return SupportedNetworks.SHERPAX;
     case 999:
       return SupportedNetworks.TESTNET;
     case 1337:
@@ -47,6 +49,8 @@ function determineNetwork(): SupportedNetworks {
       return SupportedNetworks.GOERLI;
     } else if (window.location.search.includes('kovan')) {
       return SupportedNetworks.KOVAN;
+    } else if (window.location.search.includes('sherpax')) {
+      return SupportedNetworks.SHERPAX;
     } else if (window.location.search.includes('testnet')) {
       return SupportedNetworks.TESTNET;
     }

@@ -65,7 +65,7 @@ const AccountSelect = props => {
   const [disconnectAccount] = useAccountsStore(state => [state.disconnectAccount]);
 
   useEffect(() => {
-    if (error instanceof UnsupportedChainIdError) setChainIdError('unsupported network');
+    // if (error instanceof UnsupportedChainIdError) setChainIdError('unsupported network');
     if (chainId !== undefined && chainIdToNetworkName(chainId) !== getNetwork())
       setChainIdError('network mismatch');
   }, [chainId, error]);

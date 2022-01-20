@@ -14,6 +14,8 @@ export function networkToRpc(network: SupportedNetworks, nodeProvider?: 'infura'
         return `https://eth-kovan.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`;
       }
       return `https://kovan.infura.io/v3/${process.env.INFURA_KEY}`;
+    case SupportedNetworks.SHERPAX:
+      return 'https://sherpax-testnet.chainx.org/rpc';
     case SupportedNetworks.TESTNET:
       return 'http://localhost:2000';
     default:

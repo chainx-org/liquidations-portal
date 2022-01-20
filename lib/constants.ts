@@ -4,6 +4,7 @@ export enum SupportedNetworks {
   MAINNET = 'mainnet',
   GOERLI = 'goerli',
   KOVAN = 'kovan',
+  SHERPAX = 'sherax',
   TESTNET = 'testnet'
 }
 
@@ -12,6 +13,7 @@ export const DEFAULT_NETWORK = SupportedNetworks.MAINNET;
 export const ETHERSCAN_PREFIXES = {
   [SupportedNetworks.MAINNET]: '',
   [SupportedNetworks.KOVAN]: 'kovan.',
+  [SupportedNetworks.SHERPAX]: 'sherpax.',
   [SupportedNetworks.GOERLI]: 'goerli.'
 };
 
@@ -242,17 +244,17 @@ export const COLLATERAL_MAP: Record<string, CollateralInfo> = {
     colorIconName: 'wbtcCircleColor',
     decimals: 8
   },
-  // 'WBTC-B': {
-  //   name: 'Wrapped Bitcoin',
-  //   ilk: 'WBTC-B',
-  //   symbol: 'WBTC',
-  //   bigNumFormatter: (val: BigNumber): string => val.toFormat(2),
-  //   cardTexturePng: '/assets/wbtc-card-texture.png',
-  //   bannerPng: '/assets/wbtc-banner-texture.png',
-  //   iconSvg: '/assets/wbtc-icon.svg',
-  //   colorIconName: 'wbtcCircleColor',
-  //   decimals: 8
-  // },
+  'WBTC-B': {
+    name: 'Wrapped Bitcoin',
+    ilk: 'WBTC-B',
+    symbol: 'WBTC',
+    bigNumFormatter: (val: BigNumber): string => val.toFormat(2),
+    cardTexturePng: '/assets/wbtc-card-texture.png',
+    bannerPng: '/assets/wbtc-banner-texture.png',
+    iconSvg: '/assets/wbtc-icon.svg',
+    colorIconName: 'wbtcCircleColor',
+    decimals: 8
+  },
   'WSTETH-A': {
     name: 'Wrapped Lido Staked Ether',
     ilk: 'WSTETH-A',

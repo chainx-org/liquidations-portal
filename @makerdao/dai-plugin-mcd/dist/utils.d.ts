@@ -1,0 +1,22 @@
+import BigNumber from 'bignumber.js';
+export declare function hexZeroPad(srt: any, numBytes?: number): string;
+export declare function stringToBytes(str: any): string;
+export declare function bytesToString(hex: any): string;
+export declare function nullIfEmpty(value: any): any;
+export declare function castAsCurrency(value: any, currency: any): any;
+export declare function parseWeiNumeric(value: any, denom?: string): string;
+export declare function numberFromNumeric(value: any): number;
+export declare function padRight(string: any, chars: any, sign?: any): string;
+export declare function toHex(str: any, { with0x, rightPadding }?: {
+    with0x?: boolean;
+    rightPadding?: number;
+}): string;
+export declare function fromWei(value: any): BigNumber;
+export declare function fromRay(value: any): BigNumber;
+export declare function fromRad(value: any): BigNumber;
+export declare function isBigNumber(value: any): boolean;
+export declare function isCurrency(value: any): boolean;
+export declare const isValidAddressString: (addressString: any) => boolean;
+export declare const getMcdToken: (token: any) => any;
+export declare function promiseWait(ms: any): Promise<unknown>;
+export declare const uniqueId: (object: any) => any;

@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+function jq_inplace {
+  TMP=$(mktemp)
+  jq "$1" > $TMP && mv $TMP "$2"
+}
+
+function sed_inplace {
+  # sed's -i argument behaves differently on macOS, hence this hack
+  sed -i.bak "$1" $2 && rm $2.bak
+}
+
+function deploy_mcd_dds {
+  DDS=$LIB/dss-deploy-scripts
+  cd $DDS
+
+  export MCD_PAUSE_DELAY=1
+
+  TMP=$(mktemp)
+
+  # deploy contracts with local tub, gem, and gov
+  TUB=$(cat $OUT/addresses.json | jq '.TUB')
+  GEM=$(cat $OUT/addresses.json | jq '.GEM')
+  GOV=$(cat $OUT/addresses.json | jq '.GOV')
+  OMNIA_AMOUNT="1"
+  DEPLOY=$DDS/config/testchain.json
+  cat $DEPLOY | jq_inplace ".omniaAmount = $(echo $OMNIA_AMOUNT)" $DEPLOY
+  cat $DEPLOY | jq_inplace ".migration = $(<$LIB/deploy-migration.json)" $DEPLOY
+  cat $DEPLOY | jq_inplace ".migration.tub = $(echo $TUB)" $DEPLOY
+  cat $DEPLOY | jq_inplace ".tokens.ETH.import.gem = $(echo $GEM)" $DEPLOY
+  cat $DEPLOY | jq_inplace ".import.gov = $(echo $GOV)" $DEPLOY
+
+  # Add clippers for relevant collateral types
+  # Be sure to delete corresponding flipDeploys, or clippers will be ignored
+  CLIP_CONFIG=$(cat $DEPLOY | jq '.tokens.ETH.ilks.C.clipDeploy')
+  cat $DEPLOY | jq_inplace "del(.tokens.LINK.ilks.A.flipDeploy)" $DEPLOY
+  cat $DEPLOY | jq_inplace ".tokens.LINK.ilks.A.clipDeploy = $(echo $CLIP_CONFIG)" $DEPLOY
+  cat $DEPLOY | jq_inplace "del(.tokens.YFI.ilks.A.flipDeploy)" $DEPLOY
+  cat $DEPLOY | jq_inplace ".tokens.YFI.ilks.A.clipDeploy = $(echo $CLIP_CONFIG)" $DEPLOY
+
+  # change ds-pause delay to non-zero
+  cat $DEPLOY | jq_inplace ".pauseDelay = $(echo $MCD_PAUSE_DELAY)" $DEPLOY
+
+  # submodule contracts are deprecated; this nix command
+  # installs all necessary dependencies
+  ETH_RPC_URL="http://localhost:2000" nix run -f ./ -c dss-deploy testchain
+
+  # Copy addresses and abis
+  jq -S . $DDS/out/addresses.json > $OUT/addresses-mcd.json
+  # Not sure if dss-deploy-scripts changed something, but this way doesn't work anymore:
+  #sudo cp $DDS/out/abi/*.abi $OUT/mcd
+  sudo cp $DDS/out/abi/**/*.abi $OUT/mcd
+
+  ############################
+  # build vote delegate
+
+  cd  $LIB/vote-delegate
+  dapp update
+  # "dapp --use" doesn't seem to automatically install the solc version like it does everywhere else, so do it manually
+  nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA solc-static-versions.solc_0_6_12
+  dapp --use solc:0.6.12 build || true
+
+  CHIEF=$(cat $OUT/addresses-mcd.json | jq --raw-output '.MCD_ADM')
+  POL=$(cat $OUT/addresses.json | jq --raw-output '.BATCH_POLLING')
+  VDF=$(dapp create VoteDelegateFactory $CHIEF $POL)
+  echo "VDF Address:" $VDF
+
+  # all done, go home!
+  cd -
+}

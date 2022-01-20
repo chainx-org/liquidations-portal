@@ -1,0 +1,61 @@
+import { PublicService } from '@makerdao/services-core';
+export default class MulticallService extends PublicService {
+    _schemas: any[];
+    _schemaByObservableKey: {};
+    _schemaInstances: {};
+    _subjects: {};
+    _observables: {};
+    _watcherUpdates: any;
+    _schemaSubscribers: {};
+    _totalSchemaSubscribers: number;
+    _totalActiveSchemas: number;
+    _multicallResultCache: {};
+    _addresses: {};
+    _removeSchemaTimers: {};
+    _removeSchemaDelay: any;
+    _debounceTime: any;
+    _latestDebounceTime: any;
+    _latestTimeout: any;
+    _connectedAddress: any;
+    _watcher: any;
+    constructor(name?: string);
+    initialize(settings?: {
+        addresses: any;
+        removeSchemaDelay: number;
+        debounceTime: number;
+        latestDebounceTime: number;
+        latestTimeout: number;
+    }): void;
+    authenticate(): void;
+    createWatcher({ useWeb3Provider, interval, rpcUrl, ...config }?: {
+        useWeb3Provider?: boolean;
+        interval?: string;
+        rpcUrl?: string;
+    }): any;
+    tap(cb: any): any;
+    start(): any;
+    stop(): any;
+    restart(): void;
+    schemaByObservableKey(key: any): any;
+    get observableKeys(): string[];
+    get watcher(): any;
+    get activeSchemas(): any;
+    get activeSchemaIds(): any;
+    get totalActiveSchemas(): number;
+    get totalSchemaSubscribers(): number;
+    registerSchemas(schemas: any): void;
+    latest(key: any, ...args: any[]): any;
+    watch(key: any, ...args: any[]): any;
+    _watch({ depth, throwIfError }: {
+        depth: any;
+        throwIfError?: boolean;
+    }, key: any, ...args: any[]): any;
+    _createSchemaInstance(schemaDefinition: any, ...args: any[]): any;
+    _addSchemaToMulticall(schemaInstance: any): void;
+    _removeSchemaImmediately(id: any): void;
+    _removeSchemaFromMulticall(id: any): void;
+    _flushPendingSchemaRemovals(): void;
+    _handleResult(subject: any, obsPath: any, value: any): void;
+    _validateResult(subject: any, obsPath: any, value: any): any;
+    _subscribeToWatcherUpdates(): void;
+}

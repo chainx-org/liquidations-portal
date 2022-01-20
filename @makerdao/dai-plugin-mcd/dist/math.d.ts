@@ -1,0 +1,12 @@
+export declare function debtCeiling(line: any): any;
+export declare function liquidationPenalty(chop: any): number;
+export declare function liquidationRatio(mat: any): any;
+export declare function price(currency: any, par: any, spot: any, liquidationRatio: any): any;
+export declare function annualStabilityFee(duty: any): any;
+export declare function collateralAmount(currency: any, ink: any): any;
+export declare function collateralValue(collateralAmount: any, price: any): any;
+export declare function debtValue(art: any, rate: any): any;
+export declare function collateralizationRatio(collateralValue: any, debtValue: any): any;
+export declare function liquidationPrice(collateralAmount: any, debtValue: any, liquidationRatio: any): any;
+export declare function minSafeCollateralAmount(debtValue: any, liquidationRatio: any, price: any): any;
+export declare function daiAvailable(collateralValue: any, debtValue: any, liquidationRatio: any): any;
